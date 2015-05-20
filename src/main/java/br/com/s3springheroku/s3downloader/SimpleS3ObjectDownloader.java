@@ -1,5 +1,6 @@
 package br.com.s3springheroku.s3downloader;
 
+import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
 import com.amazonaws.auth.SystemPropertiesCredentialsProvider;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
@@ -24,7 +25,7 @@ public class SimpleS3ObjectDownloader {
     }
 
     private AmazonS3 setupAmazonS3Client() {
-        AmazonS3 s3 = new AmazonS3Client(new SystemPropertiesCredentialsProvider().getCredentials());
+        AmazonS3 s3 = new AmazonS3Client(new EnvironmentVariableCredentialsProvider().getCredentials());
         s3.setRegion(Region.getRegion(Regions.US_EAST_1));
         return s3;
     }
