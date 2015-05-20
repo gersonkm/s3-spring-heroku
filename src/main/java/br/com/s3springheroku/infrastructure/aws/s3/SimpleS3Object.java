@@ -1,4 +1,4 @@
-package br.com.s3springheroku.s3downloader;
+package br.com.s3springheroku.infrastructure.aws.s3;
 
 /**
  * Objeto armazenado na cloud que está disponível para download.

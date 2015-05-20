@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-br" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layoutDecorator/mainDecorator">
 <head>
+
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    var imgUrl = /*[[${img3}]]*/ '#';
+    $(function(){
+      $("#img3-link").on("click", function(){
+        $("#img3").append($("<img/>").attr("src", imgUrl));
+      });
+    });
+    /*]]>*/
+  </script>
+
 </head>
 <body>
 
@@ -10,6 +24,9 @@
 
   <img th:src = "@{|${img1}|}" src="" style="width: 365px"/>
   <img th:src = "@{|${img2}|}" src="" style="width: 300px"/>
+
+  <a id="img3-link" href="javascript:void(0)">Clique aqui!</a>
+  <div id="img3"></div>
 
 </section>
 

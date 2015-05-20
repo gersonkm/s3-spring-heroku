@@ -1,7 +1,7 @@
-package br.com.s3springheroku;
+package br.com.s3springheroku.presentation;
 
-import br.com.s3springheroku.s3downloader.SimpleS3Object;
-import br.com.s3springheroku.s3downloader.SimpleS3ObjectDownloader;
+import br.com.s3springheroku.infrastructure.aws.s3.SimpleS3Object;
+import br.com.s3springheroku.infrastructure.aws.s3.SimpleS3ObjectDownloader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -3,16 +3,22 @@ task stage(dependsOn: ['build'])
 buildscript {
     repositories {
         jcenter()
+        maven { url 'http://repo.spring.io/plugins-release' }
     }
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE'
         classpath 'org.springframework:springloaded:1.2.3.RELEASE'
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
     }
+
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'propdeps-idea'
+
+//compileJava.dependsOn(processResources)
 
 
 jar {
@@ -41,6 +47,7 @@ dependencies {
     compile 'com.google.code.findbugs:jsr305:3.0.0'
     compile 'com.amazonaws:aws-java-sdk-s3:1.9.35'
 
+    optional "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 task wrapper(type: Wrapper) {

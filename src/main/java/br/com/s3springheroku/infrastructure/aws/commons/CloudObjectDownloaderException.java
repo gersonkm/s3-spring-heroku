@@ -1,4 +1,4 @@
-package br.com.s3springheroku.s3downloader;
+package br.com.s3springheroku.infrastructure.aws.commons;
 
 public class CloudObjectDownloaderException extends RuntimeException {
     public CloudObjectDownloaderException(String message) {
