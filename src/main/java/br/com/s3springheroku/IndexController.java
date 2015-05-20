@@ -13,6 +13,6 @@ public class IndexController {
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("img1", UriComponentsBuilder.fromUriString("/s3download/a.gif").build());
         modelMap.addAttribute("img2", UriComponentsBuilder.fromUriString("/s3download/b.gif").build());
-        return "/index";
+        return "index";
     }
 }
