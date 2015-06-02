@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layoutDecorator/mainDecorator">
+<head>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"/>
+
+    <style>
+        #avatar {
+            position: relative;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            display: inline-block;
+            padding: 7px;
+        }
+
+        #avatar a {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            border: 0;
+            color: #fcfcfc;
+            text-align: center;
+            height: 30px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            padding-top: 5px;
+
+        }
+
+        .panel {
+            margin: 0 auto;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $(".change-avatar").on("click", function () {
+                $("#file").click();
+            });
+            $("#file").on("change", function () {
+                console.log("heyyyy");
+                $(this).closest("form").submit();
+            })
+        });
+    </script>
+</head>
+<body>
+
+<section id="content" class="container" layout:fragment="content">
+    <div class="row">
+        <div class="center-block">
+            <h3>Avatar do <span th:text="|${loggedUser.getName()}|">Fulano</span></h3>
+
+            <form method="POST" enctype="multipart/form-data" th:action="@{/change-avatar}">
+                <div id="avatar">
+                    <!--<label id="add-computer-button">-->
+                    <!-- -->
+                    <!--</label>-->
+                    <img th:src="@{|${avatarUrl}|}" src="" style="width: 120px; height: 120px"/>
+                    <input id="file" type="file" name="file" accept="image/*" style="display: none;"/>
+                    <a class="change-avatar">Trocar...</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

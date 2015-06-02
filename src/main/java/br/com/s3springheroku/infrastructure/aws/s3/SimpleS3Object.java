@@ -1,5 +1,7 @@
 package br.com.s3springheroku.infrastructure.aws.s3;
 
+import javax.annotation.Nullable;
+
 /**
  * Objeto armazenado na cloud que está disponível para download.
  */
@@ -8,7 +10,7 @@ public class SimpleS3Object {
     private byte[] content;
     private String mimeType;
 
-    public SimpleS3Object(byte[] content, String mimeType) {
+    public SimpleS3Object(byte[] content, @Nullable String mimeType) {
         this.content = content;
         this.mimeType = mimeType;
     }
@@ -23,7 +25,7 @@ public class SimpleS3Object {
     /**
      * Retorna o mime type do objeto.
      */
-    public String getMimeType() {
+    public @Nullable String getMimeType() {
         return mimeType;
     }
 }

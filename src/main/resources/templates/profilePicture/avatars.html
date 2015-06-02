@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layoutDecorator/mainDecorator">
+<head>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"/>
+
+    <style>
+        .table tbody>tr>td.vert-align{
+            vertical-align: middle;
+        }
+        .img-avatar {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<section id="content" class="container" layout:fragment="content">
+    <div class="row">
+
+        <h1>Amazon S3 + Spring + Heroku</h1>
+
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>E-mail (Hash)</th>
+                <th>Avatar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user: ${users}">
+                <td class="vert-align" th:text="${user.name}">há!</td>
+                <td class="vert-align" th:text="${user.email}">há!</td>
+                <td class="vert-align" th:text="${user.encodedEmail}">há!</td>
+                <td class="vert-align">
+                    <img th:src="${#mvc.url('GUAC#getCacheableAvatar').arg(0, user.getEncodedEmail()).build()}"
+                         src="#"
+                         class="img-avatar"
+                    />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+</body>
+</html>

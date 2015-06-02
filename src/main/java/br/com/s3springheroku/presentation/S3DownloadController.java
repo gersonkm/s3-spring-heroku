@@ -19,7 +19,7 @@ public class S3DownloadController {
 
     @RequestMapping("/s3download/{key:.+}")
     public ResponseEntity<byte[]> download(@PathVariable String key) {
-        SimpleS3Object object = s3Downloader.makeDownload("company-file-server", "gerson", key);
+        SimpleS3Object object = s3Downloader.makeDownload("company-file-server", "gerson/", key);
         return createResponseEntity(object);
     }
 

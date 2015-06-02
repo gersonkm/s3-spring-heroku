@@ -1,0 +1,25 @@
+body {
+    padding-top: 70px;
+    /*color: #975808;*/
+}
+
+section#content {
+    min-height: 500px;
+}
+
+h1 {
+    font-size: 26px;
+    margin: 0 6px 15px;
+}
+
+footer {
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer img.logo {
+    height: 30px;
+    border-radius: 7px; /* pode isso? */
+}
